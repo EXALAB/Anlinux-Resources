@@ -1,0 +1,1 @@
+The source code is [here](https://github.com/EXALAB/android-shmem), which is a forked of [android-shmem](https://github.com/pelya/android-shmem)
