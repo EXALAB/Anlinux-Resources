@@ -30,4 +30,4 @@ jobs:
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
-        echo test, and deploy your project.
+    1 shoot last price 2501 shoot last price 250    echo test, and deploy your project.
