@@ -1,0 +1,5 @@
+#!/bin/bash
+xrdb $HOME/.Xresources
+metacity -d :5091
+mate-session &
+metacity --replace
