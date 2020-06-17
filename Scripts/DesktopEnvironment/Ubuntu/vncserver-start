@@ -1,0 +1,4 @@
+export USER=catitis
+export HOME=/home/catitis
+
+vncserver -geometry 1024x768 :1
