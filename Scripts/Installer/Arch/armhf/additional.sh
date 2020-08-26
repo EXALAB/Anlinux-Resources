@@ -9,6 +9,7 @@ systemctl disable systemd-resolved.service
 rm /etc/resolv.conf
 mv resolv.conf /etc
 echo "disable-scdaemon" > /etc/pacman.d/gnupg/gpg-agent.conf
+mv archlinuxarm.gpg archlinux.gpg
 pacman-key --init
 pacman-key --populate archlinuxarm
 
