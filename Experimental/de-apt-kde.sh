@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install xorg kde-plasma-desktop tigervnc-standalone-server dbus-x11 -y
+apt-get install kde-plasma-desktop tightvncserver dbus-x11 -y
 apt-get install xfe -y
 apt-get clean
 
