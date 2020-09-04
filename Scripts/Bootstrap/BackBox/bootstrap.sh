@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates bionic $1 http://archive.ubuntu.com/ubuntu
+  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates focal $1 http://archive.ubuntu.com/ubuntu
 else  
-  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates bionic $1 http://ports.ubuntu.com/ubuntu-ports
+  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates focal $1 http://ports.ubuntu.com/ubuntu-ports
 fi
 
 #Reduce size
@@ -32,17 +32,17 @@ rm $2/etc/apt/sources.list
 rm $2/etc/hostname
 echo "AnLinux-BackBox" > /etc/hostname
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  echo "deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb-src http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb-src http://archive.ubuntu.com/ubuntu focal main restricted universe multiverse" >> $2/etc/apt/sources.list
   echo "" >> $2/etc/apt/sources.list
-  echo "deb http://ppa.launchpad.net/backbox/six/ubuntu bionic main" >> $2/etc/apt/sources.list
-  echo "deb-src http://ppa.launchpad.net/backbox/six/ubuntu bionic main" >> $2/etc/apt/sources.list
+  echo "deb http://ppa.launchpad.net/backbox/seven/ubuntu focal main" >> $2/etc/apt/sources.list
+  echo "deb-src http://ppa.launchpad.net/backbox/seven/ubuntu focal main" >> $2/etc/apt/sources.list
 else  
-  echo "deb http://ports.ubuntu.com/ubuntu-ports bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb-src http://ports.ubuntu.com/ubuntu-ports bionic main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports focal main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb-src http://ports.ubuntu.com/ubuntu-ports focal main restricted universe multiverse" >> $2/etc/apt/sources.list
   echo "" >> $2/etc/apt/sources.list
-  echo "deb http://ppa.launchpad.net/backbox/six/ubuntu bionic main" >> $2/etc/apt/sources.list
-  echo "deb-src http://ppa.launchpad.net/backbox/six/ubuntu bionic main" >> $2/etc/apt/sources.list
+  echo "deb http://ppa.launchpad.net/backbox/seven/ubuntu focal main" >> $2/etc/apt/sources.list
+  echo "deb-src http://ppa.launchpad.net/backbox/seven/ubuntu focal main" >> $2/etc/apt/sources.list
 fi
 
 #tar the rootfs
