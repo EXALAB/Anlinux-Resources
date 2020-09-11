@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates focal $1 http://archive.ubuntu.com/ubuntu
+  debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,gnupg,busybox-static focal $1 http://archive.ubuntu.com/ubuntu
 else  
-  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates focal $1 http://ports.ubuntu.com/ubuntu-ports
+  qemu-debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,gnupg,busybox-static focal $1 http://ports.ubuntu.com/ubuntu-ports
 fi
 
 #Reduce size
@@ -16,7 +16,7 @@ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
 #Fix permission on dev machine only for easy packing
 chmod 777 -R $2
 
-#This step is also needed for BackBox as it is based on Ubuntu Xenial
+#This step is also needed for BackBox as it is based on Ubuntu Focal
 touch $2/root/.hushlogin
 
 #This step is only needed for BackBox to import BackBox repo key

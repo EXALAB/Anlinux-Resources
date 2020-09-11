@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates buster $1 http://deb.debian.org/debian
+  debootstrap --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates,busybox-static buster $1 http://deb.debian.org/debian
 else
-  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates buster $1 http://deb.debian.org/debian
+  qemu-debootstrap --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates,busybox-static buster $1 http://deb.debian.org/debian
 fi
 
 #Reduce size

@@ -1,5 +1,1 @@
-You will need to run this command before bootstrap:
-
-> ln -s /usr/share/debootstrap/scripts/stable /usr/share/debootstrap/scripts/rolling
-
-Or it will result in error.
+Before running the sh script, download [parrot-archive-keyring.gpg](https://github.com/EXALAB/Anlinux-Resources/tree/master/Scripts/Bootstrap/Parrot/parrot-archive-keyring.gpg) and [rolling](https://github.com/EXALAB/Anlinux-Resources/tree/master/Scripts/Bootstrap/Parrot/rolling), then put [parrot-archive-keyring.gpg](https://github.com/EXALAB/Anlinux-Resources/tree/master/Scripts/Bootstrap/Parrot/parrot-archive-keyring.gpg) under /etc/apt/trusted.gpg.d/ , and put [rolling](https://github.com/EXALAB/Anlinux-Resources/tree/master/Scripts/Bootstrap/Parrot/rolling) under /usr/share/debootstrap/scripts .

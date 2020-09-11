@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates rolling $1 http://ba.mirror.garr.it/mirrors/parrot
+  debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static rolling $1 http://mirrors.ocf.berkeley.edu/parrot
 else
-  qemu-debootstrap --no-check-gpg --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates rolling $1 http://ba.mirror.garr.it/mirrors/parrot
+  qemu-debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static rolling $1 http://mirrors.ocf.berkeley.edu/parrot
 fi
 
 #Reduce size
@@ -25,10 +25,8 @@ echo "nameserver 8.8.4.4" >> $2/etc/resolv.conf
 rm $2/etc/apt/sources.list
 rm $2/etc/hostname
 echo "AnLinux-Parrot" > /etc/hostname
-echo "deb http://ba.mirror.garr.it/mirrors/parrot rolling main contrib non-free" >> $2/etc/apt/sources.list
-echo "deb-src http://ba.mirror.garr.it/mirrors/parrot rolling main contrib non-free" >> $2/etc/apt/sources.list
-#Import the gpg key, this is only required in Parrot Security OS
-wget http://archive.parrotsec.org/parrot/misc/archive.gpg -O $2/etc/apt/trusted.gpg.d/parrot-archive-key.asc
+echo "deb http://mirrors.ocf.berkeley.edu/parrot rolling main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb-src http://mirrors.ocf.berkeley.edu/parrot rolling main contrib non-free" >> $2/etc/apt/sources.list
 
 #tar the rootfs
 cd $2
