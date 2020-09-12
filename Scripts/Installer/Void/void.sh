@@ -45,14 +45,14 @@ command="proot"
 command+=" --link2symlink"
 command+=" -0"
 command+=" -r $folder"
-if [ -n "\$(ls -A alpine-binds)" ]; then
-    for f in alpine-binds/* ;do
+if [ -n "\$(ls -A void-binds)" ]; then
+    for f in void-binds/* ;do
       . \$f
     done
 fi
 command+=" -b /dev"
 command+=" -b /proc"
-command+=" -b alpine-fs/root:/dev/shm"
+command+=" -b void-fs/root:/dev/shm"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
