@@ -1,4 +1,21 @@
 export USER=root
 export HOME=/root
 
-vncserver -geometry 1024x768 -depth 24 -name remote-desktop :1
+case `uname -m` in
+		aarch64)
+			archurl="aarch64" ;;
+		arm*)
+			archurl="arm" ;;
+		amd64)
+			archurl="x86_64" ;;
+		x86_64)
+			archurl="x86_64" ;;	
+		i*86)
+			archurl="i386" ;;
+		x86)
+			archurl="i386" ;;
+		*)
+			echo "unknown architecture"; exit 1 ;;
+		esac
+
+LD_PRELOAD=/lib/${archurl}-linux-gnu/libgcc_s.so.1 vncserver -geometry 1024x768 -depth 24 -name remote-desktop :1

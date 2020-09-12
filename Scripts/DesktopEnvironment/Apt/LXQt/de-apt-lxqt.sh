@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install lxqt-core lxqt-config qterminal tigervnc-standalone-server -y
+apt-get install lxqt-core lxqt-config qterminal tightvncserver -y
 apt-get install xfe -y
 apt-get clean
 
