@@ -24,13 +24,13 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Void/${archurl}/void-${archurl}-rootfs-20191109.tar.gz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Void/${archurl}/void-${archurl}-rootfs-20191109.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
 	echo "Decompressing Rootfs, please be patient."
-	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev' 2> /dev/null||:
+	proot --link2symlink tar -xJf ${cur}/${tarball} --exclude='dev' 2> /dev/null||:
 	cd "$cur"
 fi
 mkdir -p void-binds
