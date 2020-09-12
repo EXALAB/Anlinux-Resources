@@ -78,4 +78,6 @@ echo "making $bin executable"
 chmod +x $bin
 echo "removing image for some space"
 rm $tarball
+echo "Preparing additional component for the first time, please wait..."
+wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Void/resolv.conf" -P void-fs/etc
 echo "You can now launch Void Linux with the ./${bin} script"
