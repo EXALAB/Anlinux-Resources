@@ -2,9 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install xorg tasksel tigervnc-standalone-server dbus-x11 -y
-tasksel install kubuntu-desktop
-apt-get install xfe -y
+apt-get install xorg kubuntu-desktop tigervnc-standalone-server dbus-x11 -y
 apt-get clean
 
 #Setup the necessary files
