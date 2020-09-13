@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install xorg kubuntu-desktop tigervnc-standalone-server dbus-x11 -y
+apt-get install libncurses5-dev xorg kde-plasma-desktop tigervnc-standalone-server dbus-x11 -y
 apt-get clean
 
 #Setup the necessary files
