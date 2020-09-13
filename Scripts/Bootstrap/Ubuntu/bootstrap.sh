@@ -36,6 +36,16 @@ else
   echo "deb-src http://ports.ubuntu.com/ubuntu-ports focal main restricted universe multiverse" >> $2/etc/apt/sources.list
 fi
 
+#setup custom packages
+chroot $2 apt-get update
+chroot $2 apt-get install gvfs-daemons udisks2 -y
+chroot $2 rm /var/lib/dpkg/info/udisks2.postinst
+chroot $2 dpkg --configure udisks2
+chroot $2 apt-get install -f
+chroot $2 apt-get clean
+chroot $2 apt-get autoremove -y
+rm -rf $2/var/lib/apt/lists/*
+
 #tar the rootfs
 cd $2
 rm -rf ../ubuntu-rootfs-$1.tar.xz

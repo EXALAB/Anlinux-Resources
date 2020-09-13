@@ -28,6 +28,16 @@ echo "AnLinux-Parrot" > /etc/hostname
 echo "deb http://mirrors.ocf.berkeley.edu/parrot rolling main contrib non-free" >> $2/etc/apt/sources.list
 echo "deb-src http://mirrors.ocf.berkeley.edu/parrot rolling main contrib non-free" >> $2/etc/apt/sources.list
 
+#setup custom packages
+chroot $2 apt-get update
+chroot $2 apt-get install gvfs-daemons udisks2 -y
+chroot $2 rm /var/lib/dpkg/info/udisks2.postinst
+chroot $2 dpkg --configure udisks2
+chroot $2 apt-get install -f
+chroot $2 apt-get clean
+chroot $2 apt-get autoremove -y
+rm -rf $2/var/lib/apt/lists/*
+
 #tar the rootfs
 cd $2
 rm -rf ../parrot-rootfs-$1.tar.xz
