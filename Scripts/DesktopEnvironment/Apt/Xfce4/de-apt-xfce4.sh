@@ -1,10 +1,11 @@
 #!/bin/bash
 
 #Get the necessary components
-apt-get update
-apt-get install xfce4 xfce4-terminal tightvncserver -y
-apt-get install xfe -y
-apt-get clean
+apt update
+apt install xfce4 xfce4-terminal tightvncserver -y
+apt install xfe -y
+apt install dbus-x11
+apt clean
 
 #Setup the necessary files
 mkdir ~/.vnc
