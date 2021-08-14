@@ -2,4 +2,6 @@ All the rootfs used in AnLinux app is here, with the exception of Kali Nethunter
 
 [Kali Nethunter](https://build.nethunter.com/kalifs/kalifs-latest/)
 
-[ArchLinux](http://mirrors.evowise.com/archlinux/iso/2019.05.02/)
+[ArchLinux (x86)](https://mirrors.ocf.berkeley.edu/archlinux/iso/latest/)
+
+[ArchLinux (armhf and arm64)](http://os.archlinuxarm.org/os/)

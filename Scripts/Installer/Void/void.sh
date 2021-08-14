@@ -24,7 +24,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Void/${archurl}/void-${archurl}-rootfs-20191109.tar.xz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Void/${archurl}/void-${archurl}-ROOTFS-20210218.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
