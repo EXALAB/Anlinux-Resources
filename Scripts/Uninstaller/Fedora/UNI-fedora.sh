@@ -6,7 +6,7 @@ chmod 777 -R fedora-fs
 rm -rf fedora-fs
 rm -rf fedora-binds
 rm -rf fedora.sh
-rm -rf start-fedora.sh
+rm -rf /data/data/com.termux/files/usr/bin/start
 rm -rf ssh-yum.sh
 rm -rf de-yum.sh
 rm -rf de-yum-xfce4.sh

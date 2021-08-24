@@ -6,7 +6,7 @@ chmod 777 -R centos-fs
 rm -rf centos-fs
 rm -rf centos-binds
 rm -rf centos.sh
-rm -rf start-centos.sh
+rm -rf /data/data/com.termux/files/usr/bin/start
 rm -rf ssh-yum.sh
 rm -rf UNI-centos.sh
 

@@ -26,7 +26,7 @@ if [ "$first" != 1 ];then
 	cd "$cur"
 fi
 mkdir -p arch-binds
-bin=start-arch.sh
+bin=/data/data/com.termux/files/usr/bin/start
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
@@ -43,15 +43,15 @@ unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
-command+=" -r $folder"
-if [ -n "\$(ls -A arch-binds)" ]; then
-    for f in arch-binds/* ;do
+command+=" -r /data/data/com.termux/files/home/$folder"
+if [ -n "\$(ls -A /data/data/com.termux/files/home/arch-binds)" ]; then
+    for f in /data/data/com.termux/files/home/arch-binds/* ;do
       . \$f
     done
 fi
 command+=" -b /dev"
 command+=" -b /proc"
-command+=" -b arch-fs/root:/dev/shm"
+command+=" -b /data/data/com.termux/files/home/arch-fs/root:/dev/shm"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
@@ -71,13 +71,13 @@ else
 fi
 EOM
 
-echo "fixing shebang of $bin"
+echo "fixing shebang of launch script"
 termux-fix-shebang $bin
-echo "making $bin executable"
+echo "making binary executable"
 chmod +x $bin
 echo "removing image for some space"
 rm $tarball
-echo "You can now launch Arch Linux with the ./${bin} script"
+echo 'You can now launch Arch Linux with the "start" command'
 echo "Preparing additional component for the first time, please wait..."
 wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/resolv.conf" -P arch-fs/root
 wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Arch/armhf/additional.sh" -P arch-fs/root

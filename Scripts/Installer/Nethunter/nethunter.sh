@@ -37,7 +37,7 @@ echo "deb http://mirror.fsmg.org.nz/kali kali-rolling main contrib non-free" >> 
 echo "deb-src http://mirror.fsmg.org.nz/kali kali-rolling main contrib non-free" >> nethunter-fs/etc/apt/sources.list
 wget https://archive.kali.org/archive-key.asc -O nethunter-fs/etc/apt/trusted.gpg.d/kali-archive-key.asc
 mkdir -p nethunter-binds
-bin=start-nethunter.sh
+bin=/data/data/com.termux/files/usr/bin/start
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
@@ -47,15 +47,15 @@ unset LD_PRELOAD
 command="proot"
 command+=" --link2symlink"
 command+=" -0"
-command+=" -r nethunter-fs"
-if [ -n "\$(ls -A nethunter-binds)" ]; then
-    for f in nethunter-binds/* ;do
+command+=" -r /data/data/com.termux/files/home/nethunter-fs"
+if [ -n "\$(ls -A /data/data/com.termux/files/home/nethunter-binds)" ]; then
+    for f in /data/data/com.termux/files/home/nethunter-binds/* ;do
       . \$f
     done
 fi
 command+=" -b /dev"
 command+=" -b /proc"
-command+=" -b nethunter-fs/root:/dev/shm"
+command+=" -b /data/data/com.termux/files/home/nethunter-fs/root:/dev/shm"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
@@ -75,10 +75,10 @@ else
 fi
 EOM
 
-echo "fixing shebang of $bin"
+echo "fixing shebang of launch script"
 termux-fix-shebang $bin
-echo "making $bin executable"
+echo "making binary executable"
 chmod +x $bin
 echo "removing image for some space"
 rm $tarball
-echo "You can now launch Kali Nethunter with the ./${bin} script"
+echo 'You can now launch Kali Nethunter with the "start" command'

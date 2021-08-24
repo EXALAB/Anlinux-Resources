@@ -6,7 +6,7 @@ chmod 777 -R kali-fs
 rm -rf nethunter-fs
 rm -rf nethunter-binds
 rm -rf nethunter.sh
-rm -rf start-nethunter.sh
+rm -rf /data/data/com.termux/files/usr/bin/start
 rm -rf ssh-apt.sh
 rm -rf de-apt.sh
 rm -rf de-apt-xfce4.sh
