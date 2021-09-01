@@ -4,7 +4,7 @@
 apt-get update
 apt-get install xorg kubuntu-desktop tigervnc-standalone-server dbus-x11 -y
 
-echo "Procesing command provided by @maalos, this fixed errors in Ubuntu Focal 20"
+echo "Proccesing command provided by @maalos, this fixed error in Ubuntu 20 Focal."
 
 rm /var/lib/dpkg/info/fprintd.postinst
 rm /var/lib/dpkg/info/libfprint*.postinst

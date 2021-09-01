@@ -1,0 +1,1 @@
+Special thanks to @maalos for providing the code that fix issue of KDE on Ubuntu 20 Focal
