@@ -3,10 +3,16 @@
 #Get the necessary components
 apt-get update
 apt-get install xorg kubuntu-desktop tigervnc-standalone-server dbus-x11 -y
+
+echo "Procesing command provided by @maalos, this fixed errors in Ubuntu Focal 20"
+
 rm /var/lib/dpkg/info/fprintd.postinst
 rm /var/lib/dpkg/info/libfprint*.postinst
 rm /var/lib/dpkg/info/libpam-fprintd*.postinst
 dpkg --configure -a
+
+echo "Done."
+
 apt-get clean
 
 #Setup the necessary files
