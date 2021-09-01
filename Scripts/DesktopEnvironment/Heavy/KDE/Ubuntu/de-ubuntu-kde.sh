@@ -3,6 +3,10 @@
 #Get the necessary components
 apt-get update
 apt-get install xorg kubuntu-desktop tigervnc-standalone-server dbus-x11 -y
+rm /var/lib/dpkg/info/fprintd.postinst
+rm /var/lib/dpkg/info/libfprint*.postinst
+rm /var/lib/dpkg/info/libpam-fprintd*.postinst
+dpkg --configure -a
 apt-get clean
 
 #Setup the necessary files
