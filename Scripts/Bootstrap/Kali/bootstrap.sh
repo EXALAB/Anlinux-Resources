@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static kali-rolling $1 http://mirror.fsmg.org.nz/kali
+  debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static,gnupg kali-rolling $1 http://http.kali.org/kali
 else
-  qemu-debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static kali-rolling $1 http://mirror.fsmg.org.nz/kali
+  qemu-debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static,gnupg kali-rolling $1 http://http.kali.org/kali
 fi
 
 #Reduce size
@@ -25,11 +25,11 @@ echo "nameserver 8.8.4.4" >> $2/etc/resolv.conf
 rm $2/etc/apt/sources.list
 rm $2/etc/hostname
 echo "AnLinux-Kali" > /etc/hostname
-echo "deb http://mirror.fsmg.org.nz/kali kali-rolling main contrib non-free" >> $2/etc/apt/sources.list
-echo "deb-src http://mirror.fsmg.org.nz/kali kali-rolling main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" >> $2/etc/apt/sources.list
 
 #Import the gpg key, this is only required in Kali
-wget https://archive.kali.org/archive-key.asc -O $2/etc/apt/trusted.gpg.d/kali-archive-key.asc
+chroot $2 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
 
 #setup custom packages
 chroot $2 apt-get update
