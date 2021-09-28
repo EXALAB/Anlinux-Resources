@@ -4,7 +4,7 @@
 apt update
 apt install xfce4 xfce4-terminal tightvncserver -y
 apt install xfe -y
-apt install dbus-x11
+apt install dbus-x11 -y
 apt clean
 
 #Setup the necessary files
