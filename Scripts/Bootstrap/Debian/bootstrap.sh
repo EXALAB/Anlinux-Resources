@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates,busybox-static buster $1 http://deb.debian.org/debian
+  debootstrap --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates,busybox-static bullseye $1 http://deb.debian.org/debian
 else
-  qemu-debootstrap --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates,busybox-static buster $1 http://deb.debian.org/debian
+  qemu-debootstrap --arch=$1 --variant=minbase --include=busybox,systemd,libsystemd0,wget,ca-certificates,busybox-static bullseye $1 http://deb.debian.org/debian
 fi
 
 #Reduce size
@@ -25,8 +25,8 @@ echo "nameserver 8.8.4.4" >> $2/etc/resolv.conf
 rm $2/etc/apt/sources.list
 rm $2/etc/hostname
 echo "AnLinux-Debian" > /etc/hostname
-echo "deb http://deb.debian.org/debian buster main contrib non-free" >> $2/etc/apt/sources.list
-echo "deb-src http://deb.debian.org/debian buster main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb http://deb.debian.org/debian bullseye main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb-src http://deb.debian.org/debian bullseye main contrib non-free" >> $2/etc/apt/sources.list
 
 #setup custom packages
 chroot $2 apt-get update

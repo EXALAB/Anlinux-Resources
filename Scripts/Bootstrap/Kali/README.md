@@ -1,1 +1,1 @@
-Strongly adviced to use the Kali Live CD to run this script, but if you insist, please install Kali Archive Keyring first [kali-archive-keyring_2020.2_all.deb](https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb)
+Strongly adviced to use the Kali Live CD to run this script, but if you insist, please install Kali Archive Keyring first [kali-archive-keyring_2022.1_all.deb](https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2022.1_all.deb)
