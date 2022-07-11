@@ -83,8 +83,10 @@ else
     echo "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" >> ~/../usr/etc/pulse/default.pa
 fi
 
-echo "exit-idle-time = 180" >> ~/../usr/etc/pulse/daemon.conf
-echo "Modiefied timeout to 180 seconds"
+echo "exit-idle-time = -1" >> ~/../usr/etc/pulse/daemon.conf
+echo "Modified pulseaudio timeout to infinite"
+echo "export PULSE_SERVER=127.0.0.1" >> parrot-fs/etc/profile
+echo "Setting Pulseaudio server to 127.0.0.1"
 
 echo "fixing shebang of $bin"
 termux-fix-shebang $bin
