@@ -40,6 +40,7 @@ echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
 cd \$(dirname \$0)
+pulseaudio --start
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
 command="proot"
@@ -72,6 +73,19 @@ else
     \$command -c "\$com"
 fi
 EOM
+
+echo "Setting up pulseaudio so you can have music in distro."
+
+pkg install pulseaudio -y
+
+if grep -q "anonymous" ~/../usr/etc/pulse/default.pa;then
+    echo "module already present"
+else
+    echo "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" >> ~/../usr/etc/pulse/default.pa
+fi
+
+echo "exit-idle-time = 180" >> ~/../usr/etc/pulse/daemon.conf
+echo "Modiefied timeout to 180 seconds"
 
 echo "fixing shebang of $bin"
 termux-fix-shebang $bin

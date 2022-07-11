@@ -1,3 +1,4 @@
 #!/bin/bash
+export PULSE_SERVER=127.0.0.1
 xrdb $HOME/.Xresources
 startlxde
