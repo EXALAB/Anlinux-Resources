@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #Get the necessary components
-yum groupinstall kde-desktop-environment --forcearch=armv7hl -y
-yum install tigervnc-server --forcearch=armv7hl -y
+yum groupinstall kde-desktop-environment -y
+yum install tigervnc-server -y
 
 #Setup the necessary files
 mkdir ~/.vnc
