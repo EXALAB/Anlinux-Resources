@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install xorg ubuntu-gnome-desktop tigervnc-standalone-server dbus-x11 -y
+apt-get install xorg kde-plasma-desktop tigervnc-standalone-server dbus-x11 -y
 
 echo "Proccesing command provided by @maalos, this fixed error in Ubuntu 20 Focal."
 
@@ -34,7 +34,7 @@ echo "The VNC Server will be started at 127.0.0.1:5901"
 echo " "
 echo "You can connect to this address with a VNC Viewer you prefer"
 echo " "
-echo "Connect to this address will open a window with Gnome Desktop Environment"
+echo "Connect to this address will open a window with Kde Desktop Environment"
 echo " "
 echo " "
 echo " "
