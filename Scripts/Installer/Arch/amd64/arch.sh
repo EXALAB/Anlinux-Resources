@@ -39,7 +39,11 @@ echo " "
 echo " "
 echo " "
 cd \$(dirname \$0)
-pulseaudio --start
+if [ `id -u` = 0 ];then
+    pulseaudio --start --system
+else
+    pulseaudio --start
+fi
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
 command="proot"
@@ -85,6 +89,8 @@ fi
 
 echo "exit-idle-time = -1" >> ~/../usr/etc/pulse/daemon.conf
 echo "Modified pulseaudio timeout to infinite"
+echo "autospawn = no" >> ~/../usr/etc/pulse/client.conf
+echo "Disabled pulseaudio autospawn"
 echo "export PULSE_SERVER=127.0.0.1" >> arch-fs/etc/profile
 echo "Setting Pulseaudio server to 127.0.0.1"
 
