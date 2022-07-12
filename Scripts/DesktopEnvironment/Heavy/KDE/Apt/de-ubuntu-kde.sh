@@ -17,9 +17,9 @@ apt-get clean
 
 #Setup the necessary files
 mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Experimental/xstartup -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Experimental/vncserver-start -P /usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Experimental/vncserver-stop -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/xstartup -P ~/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/vncserver-start -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/Anlinux-Resources/master/Scripts/DesktopEnvironment/Heavy/KDE/Apt/vncserver-stop -P /usr/local/bin/
 
 chmod +x ~/.vnc/xstartup
 chmod +x /usr/local/bin/vncserver-start
@@ -34,7 +34,7 @@ echo "The VNC Server will be started at 127.0.0.1:5901"
 echo " "
 echo "You can connect to this address with a VNC Viewer you prefer"
 echo " "
-echo "Connect to this address will open a window with Kde Desktop Environment"
+echo "Connect to this address will open a window with KDE Desktop Environment"
 echo " "
 echo " "
 echo " "
