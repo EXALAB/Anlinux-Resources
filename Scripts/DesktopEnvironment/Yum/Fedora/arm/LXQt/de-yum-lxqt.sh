@@ -2,7 +2,7 @@
 
 #Get the necessary components
 yum groupinstall lxqt --forcearch=armv7hl -y
-yum install tigervnc-server --forcearch=armv7hl -y
+yum install tigervnc-server dbus-x11 --forcearch=armv7hl -y
 
 #Setup the necessary files
 mkdir ~/.vnc

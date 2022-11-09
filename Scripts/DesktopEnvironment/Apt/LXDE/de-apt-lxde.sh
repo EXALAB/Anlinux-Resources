@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install lxde-core lxterminal tightvncserver -y
+apt-get install lxde-core lxterminal tightvncserver dbus-x11 -y
 apt-get install xfe -y
 apt-get clean
 

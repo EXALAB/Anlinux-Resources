@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Get the necessary components
-pacman -Syu --noconfirm lxde tigervnc
+pacman -Syu --noconfirm lxde tigervnc dbus-x11
 
 #Setup the necessary files
 wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Pacman/xstartup -P ~/.vnc/

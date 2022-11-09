@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install mate-desktop-environment-core mate-terminal tightvncserver -y
+apt-get install mate-desktop-environment-core mate-terminal tightvncserver dbus-x11 -y
 apt-get install xfe -y
 apt-get clean
 
