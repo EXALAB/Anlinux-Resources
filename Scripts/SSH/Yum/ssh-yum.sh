@@ -4,7 +4,7 @@
 yum install openssh-server -y
 
 #Setup the necessary files
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/sshd_config -P /etc/ssh
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Yum/sshd_config --no-check-certificate -P /etc/ssh
 
 echo "You can now start OpenSSH Server by running /etc/init.d/sshd start"
 echo " "

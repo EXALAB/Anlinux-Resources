@@ -5,7 +5,7 @@ apt-get update
 apt-get install openssh-server -y
 
 #Setup the necessary files
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/sshd_config -P /etc/ssh
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Apt/sshd_config --no-check-certificate -P /etc/ssh
 
 echo "You can now start OpenSSH Server by running /etc/init.d/ssh start"
 echo " "

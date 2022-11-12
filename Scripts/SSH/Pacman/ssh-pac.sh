@@ -4,7 +4,7 @@
 pacman -Sy --noconfirm openssh
 
 #Setup the necessary files
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/sshd_config -P /etc/ssh
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/SSH/Pacman/sshd_config --no-check-certificate -P /etc/ssh
 
 echo "You can now start OpenSSH Server by running /etc/rc.d/sshd start"
 echo " "
