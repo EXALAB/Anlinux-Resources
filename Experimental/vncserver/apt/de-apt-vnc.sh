@@ -2,14 +2,14 @@
 
 #Get the necessary components
 apt-get update
-apt-get install tightvncserver dbus-x11 -y
+apt-get install tightvncserver dbus-x11 xorg -y
 apt-get clean
 
 #Setup the necessary files
 mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/vncserver/apt/xstartup -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/vncserver/apt/vncserver-start -P /usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/vncserver/apt/vncserver-stop -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/vncserver/apt/xstartup --no-check-certificate -P ~/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/vncserver/apt/vncserver-start --no-check-certificate -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Experimental/vncserver/apt/vncserver-stop --no-check-certificate -P /usr/local/bin/
 
 chmod +x ~/.vnc/xstartup
 chmod +x /usr/local/bin/vncserver-start
