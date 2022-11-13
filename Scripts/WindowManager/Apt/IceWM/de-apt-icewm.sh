@@ -2,7 +2,7 @@
 
 #Get the necessary components
 apt-get update
-apt-get install icewm tightvncserver -y
+apt-get install icewm tightvncserver dbus-x11 -y
 apt-get install xfe -y
 apt-get clean
 
