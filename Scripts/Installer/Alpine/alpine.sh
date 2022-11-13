@@ -24,7 +24,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-minirootfs-3.16.0-${archurl}.tar.gz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-minirootfs-3.16.3-${archurl}.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -39,11 +39,8 @@ echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
 cd \$(dirname \$0)
-if [ `id -u` = 0 ];then
-    pulseaudio --start --system
-else
-    pulseaudio --start
-fi
+pulseaudio --start
+## For rooted user: pulseaudio --start --system
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
 command="proot"

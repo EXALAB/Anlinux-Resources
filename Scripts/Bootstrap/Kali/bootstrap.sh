@@ -29,7 +29,7 @@ echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" >> $2/et
 echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" >> $2/etc/apt/sources.list
 
 #Import the gpg key, this is only required in Kali
-chroot $2 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6
+chroot $2 wget http://archive.kali.org/archive-key.asc -O /etc/apt/trusted.gpg.d/kali-archive-key.asc
 
 #setup custom packages
 chroot $2 apt-get update

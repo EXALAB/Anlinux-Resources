@@ -43,11 +43,8 @@ echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
 cd \$(dirname \$0)
-if [ `id -u` = 0 ];then
-    pulseaudio --start --system
-else
-    pulseaudio --start
-fi
+pulseaudio --start
+## For rooted user: pulseaudio --start --system
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
 command="proot"

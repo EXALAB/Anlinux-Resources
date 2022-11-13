@@ -24,7 +24,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Void/${archurl}/void-${archurl}-ROOTFS-20210930.tar.xz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Void/${archurl}/void-${archurl}-ROOTFS-20221001.tar.xz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -39,11 +39,8 @@ echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
 cd \$(dirname \$0)
-if [ `id -u` = 0 ];then
-    pulseaudio --start --system
-else
-    pulseaudio --start
-fi
+pulseaudio --start
+## For rooted user: pulseaudio --start --system
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
 command="proot"

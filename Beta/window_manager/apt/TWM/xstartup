@@ -1,0 +1,3 @@
+#!/bin/bash
+xrdb $HOME/.Xresources
+LANG=c twm -display :1

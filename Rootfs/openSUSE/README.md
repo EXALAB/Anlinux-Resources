@@ -39,4 +39,4 @@ For Tumbleweed:
 
 8. After finish processing the image, simply run this command to modify the permission:
 
-> sudo chown -R usernamehere directoryhere
+> sudo chown -R usernamehere *

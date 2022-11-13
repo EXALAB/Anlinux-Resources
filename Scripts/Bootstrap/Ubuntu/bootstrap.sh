@@ -30,9 +30,17 @@ rm $2/etc/hostname
 echo "AnLinux-Ubuntu" > /etc/hostname
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
   echo "deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu jammy-proposed main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu jammy-security main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe multiverse" >> $2/etc/apt/sources.list
   echo "deb-src http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse" >> $2/etc/apt/sources.list
 else  
   echo "deb http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-backports main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-proposed main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-security main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-updates main restricted universe multiverse" >> $2/etc/apt/sources.list
   echo "deb-src http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" >> $2/etc/apt/sources.list
 fi
 

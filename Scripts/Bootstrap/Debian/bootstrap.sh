@@ -26,6 +26,9 @@ rm $2/etc/apt/sources.list
 rm $2/etc/hostname
 echo "AnLinux-Debian" > /etc/hostname
 echo "deb http://deb.debian.org/debian bullseye main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb http://security.debian.org/debian-security bullseye-security main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb http://deb.debian.org/debian bullseye-updates main contrib non-free" >> $2/etc/apt/sources.list
+echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" >> $2/etc/apt/sources.list
 echo "deb-src http://deb.debian.org/debian bullseye main contrib non-free" >> $2/etc/apt/sources.list
 
 #setup custom packages
