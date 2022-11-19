@@ -7,9 +7,9 @@ apt-get clean
 
 #Setup the necessary files
 mkdir ~/.vnc
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Beta/windowmanager/apt/TWM/xstartup --no-check-certificate -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Beta/windowmanager/apt/TWM/vncserver-start --no-check-certificate -P /usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Beta/windowmanager/apt/TWM/vncserver-stop --no-check-certificate -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Beta/window_manager/apt/TWM/xstartup --no-check-certificate -P ~/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Beta/window_manager/apt/TWM/vncserver-start --no-check-certificate -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Beta/window_manager/apt/TWM/vncserver-stop --no-check-certificate -P /usr/local/bin/
 
 chmod +x ~/.vnc/xstartup
 chmod +x /usr/local/bin/vncserver-start
