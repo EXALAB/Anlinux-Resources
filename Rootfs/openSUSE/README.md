@@ -2,7 +2,7 @@ How these image are made:
 
 1. Download the script here:
 
-[Script](https://github.com/EXALAB/AnLinux-Resources/tree/master/Scripts/Docker)
+[Script](https://github.com/EXALAB/AnLinux-Resources/tree/master/Tools/Docker)
 
 2. Then install the required things:
 
@@ -21,7 +21,7 @@ arm64
 
 4. Then run the script:
 
-For Leap:
+For Leap (i386 is not available for Leap):
 
 > ./fetch-docker-image.sh leap opensuse/leap:latest
 
