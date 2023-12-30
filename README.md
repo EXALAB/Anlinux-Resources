@@ -23,3 +23,9 @@ To bootstrap a system, simply run:
 For example: 
 
 > ./bootstrap.sh armhf /home/user/ubuntu/armhf
+
+
+# To install this in Termux use the below command=
+```ShellSession
+hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Kali/kali.sh && bash kali.sh && ./start-kali.sh && apt install git apt-utils figlet procps -y && apt-get update --fix-missing && neofetch
+```
