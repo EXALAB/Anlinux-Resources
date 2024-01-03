@@ -34,7 +34,7 @@ cat > $bin <<- EOM
 echo " "
 echo " "
 echo " "
-echo "If you encountered any error after installed, you should run this command: chmod 755 && ./additional.sh , this will fix the pacman-key and network problem."
+echo "If you encountered any error after installed, you should run this command: chmod 755 additional.sh && ./additional.sh , this will fix the pacman-key and network problem."
 echo " "
 echo " "
 echo " "
