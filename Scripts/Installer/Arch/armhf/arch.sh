@@ -33,7 +33,7 @@ cat > $bin <<- EOM
 echo " "
 echo " "
 echo " "
-echo "If you are first time starting Arch Linux, you should run this command: chmod 755 && ./additional.sh , this will fix the pacman-key and network problem."
+echo "If you are first time starting Arch Linux, you should run this command: chmod 755 additional.sh && ./additional.sh , this will fix the pacman-key and network problem."
 echo " "
 echo " "
 echo " "
