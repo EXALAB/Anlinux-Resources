@@ -24,7 +24,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-minirootfs-3.18.5-${archurl}.tar.gz" -O $tarball
+		wget "https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Rootfs/Alpine/${archurl}/alpine-minirootfs-3.21.2-${archurl}.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"

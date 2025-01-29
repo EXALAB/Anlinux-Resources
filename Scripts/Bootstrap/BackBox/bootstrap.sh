@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,gnupg,busybox-static jammy $1 http://archive.ubuntu.com/ubuntu
+  debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,gnupg,busybox-static noble $1 http://archive.ubuntu.com/ubuntu
 else  
-  qemu-debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,gnupg,busybox-static jammy $1 http://ports.ubuntu.com/ubuntu-ports
+  qemu-debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,gnupg,busybox-static noble $1 http://ports.ubuntu.com/ubuntu-ports
 fi
 
 #Reduce size
@@ -32,25 +32,25 @@ rm $2/etc/apt/sources.list
 rm $2/etc/hostname
 echo "AnLinux-BackBox" > $2/etc/hostname
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  echo "deb http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb http://archive.ubuntu.com/ubuntu jammy-backports main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb http://archive.ubuntu.com/ubuntu jammy-proposed main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb http://archive.ubuntu.com/ubuntu jammy-security main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb http://archive.ubuntu.com/ubuntu jammy-updates main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb-src http://archive.ubuntu.com/ubuntu jammy main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu noble main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu noble-backports main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu noble-proposed main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu noble-security main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://archive.ubuntu.com/ubuntu noble-updates main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb-src http://archive.ubuntu.com/ubuntu noble main restricted universe multiverse" >> $2/etc/apt/sources.list
   echo "" >> $2/etc/apt/sources.list
-  echo "deb http://ppa.launchpadcontent.net/backbox/eight/ubuntu jammy main" >> $2/etc/apt/sources.list
-  echo "deb-src http://ppa.launchpadcontent.net/backbox/eight/ubuntu jammy main" >> $2/etc/apt/sources.list
+  echo "deb http://ppa.launchpadcontent.net/backbox/nine/ubuntu noble main" >> $2/etc/apt/sources.list
+  echo "deb-src http://ppa.launchpadcontent.net/backbox/nine/ubuntu noble main" >> $2/etc/apt/sources.list
 else  
-  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-backports main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-proposed main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-security main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb http://ports.ubuntu.com/ubuntu-ports jammy-updates main restricted universe multiverse" >> $2/etc/apt/sources.list
-  echo "deb-src http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports noble main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports noble-backports main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports noble-proposed main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports noble-security main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb http://ports.ubuntu.com/ubuntu-ports noble-updates main restricted universe multiverse" >> $2/etc/apt/sources.list
+  echo "deb-src http://ports.ubuntu.com/ubuntu-ports noble main restricted universe multiverse" >> $2/etc/apt/sources.list
   echo "" >> $2/etc/apt/sources.list
-  echo "deb http://ppa.launchpadcontent.net/backbox/eight/ubuntu jammy main" >> $2/etc/apt/sources.list
-  echo "deb-src http://ppa.launchpadcontent.net/backbox/eight/ubuntu jammy main" >> $2/etc/apt/sources.list
+  echo "deb http://ppa.launchpadcontent.net/backbox/nine/ubuntu noble main" >> $2/etc/apt/sources.list
+  echo "deb-src http://ppa.launchpadcontent.net/backbox/nine/ubuntu noble main" >> $2/etc/apt/sources.list
 fi
 
 #setup custom packages

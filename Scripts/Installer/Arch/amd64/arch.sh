@@ -4,7 +4,7 @@ if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
 fi
-tarball="arch-rootfs.tar.gz"
+tarball="arch-rootfs.tar.zst"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
@@ -16,13 +16,13 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://mirror.ufam.edu.br/archlinux/iso/latest/archlinux-bootstrap-x86_64.tar.gz" -O $tarball
+		wget "https://mirror.ufam.edu.br/archlinux/iso/latest/archlinux-bootstrap-x86_64.tar.zst" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
 	echo "Decompressing Rootfs, please be patient."
-	proot --link2symlink tar -xf ${cur}/${tarball}||:
+	proot --link2symlink tar --zstd -xf ${cur}/${tarball}||:
 	cd "$cur"
 fi
 mkdir -p arch-binds

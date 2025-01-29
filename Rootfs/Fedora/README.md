@@ -1,0 +1,1 @@
+These are official docker image, downloaded from here: [Docker](https://hub.docker.com/_/fedora)

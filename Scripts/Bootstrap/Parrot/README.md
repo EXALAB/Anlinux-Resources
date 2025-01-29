@@ -1,1 +1,3 @@
-Due to a unknown erro when bootstraping the rootfs (Couldn't find these debs: usr-is-merged), script here is currently useless.
+Before running the sh script, install [parrot-archive-keyring](https://deb.parrot.sh/parrot/pool/main/p/parrot-archive-keyring/) package.
+
+Then download this file [parrot](https://github.com/EXALAB/Anlinux-Resources/tree/master/Scripts/Bootstrap/Parrot/lory), then put [lory](https://github.com/EXALAB/Anlinux-Resources/tree/master/Scripts/Bootstrap/Parrot/lory) under /usr/share/debootstrap/scripts .

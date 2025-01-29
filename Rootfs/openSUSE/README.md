@@ -33,7 +33,7 @@ For Tumbleweed:
 
 > mkdir -p layer && sudo tar -xvf layer.tar -C layer
 
-7. At last, open a terminal in the "layer" folder, and run this command to pack the system into xz (change the file name base on your need. ALso remember to delete the layer.tar, json, VERSION file before proceeding!):
+7. At last, open a terminal in the "layer" folder, and run this command to pack the system into xz (change the file name base on your need:
 
 > sudo XZ_OPT=-9 tar -cJvf ../openSUSE-Leap-rootfs-armhf.tar.xz *
 
