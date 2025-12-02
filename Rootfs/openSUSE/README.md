@@ -1,42 +1,38 @@
 How these image are made:
 
-1. Download the script here:
+1. Pull the image using this command:
 
-[Script](https://github.com/EXALAB/AnLinux-Resources/tree/master/Tools/Docker)
-
-2. Then install the required things:
-
-> sudo apt-get install curl jq golang
-
-3. Export GOARCH to something you want:
-
-> export GOARCH=somearch
+> sudo docker pull --platform=linux/arm64/v8 opensuse/leap:latest
 
 There are four Architecture for AnLinux:
 
-> 386
-amd64
-arm
-arm64
+> linux/386
+linux/amd64
+linux/arm/v7
+linux/arm64/v8
 
-4. Then run the script:
+(i386 is not available for openSUSE Leap)
 
-For Leap (i386 is not available for Leap):
+Alternatively, you can also run these command to know what to pull for:
 
-> ./fetch-docker-image.sh leap opensuse/leap:latest
+> docker manifest inspect opensuse/leap:latest
+docker manifest inspect opensuse/tumbleweed:latest
 
-For Tumbleweed:
+2. Then run this command to export the image:
 
-> ./fetch-docker-image.sh tumbleweed opensuse/tumbleweed:latest
+> sudo docker save --platform=linux/arm64/v8 -o output.tar opensuse/leap:latest
 
-6. After image downloaded, go to the leap or tumbleweed folder and find a file named "layer.tar", and extract the file using this command (Extract command should be runned with superuser permission, otherwise you will get permission problem):
+3. Extract output.tar, then extract the archive inside /blobs/sha256/.
 
-> mkdir -p layer && sudo tar -xvf layer.tar -C layer
-
-7. At last, open a terminal in the "layer" folder, and run this command to pack the system into xz (change the file name base on your need:
+4. At last, open a terminal in the folder with the content of archive we extracted just now, and run this command to pack the system into xz (change the file name base on your need:
 
 > sudo XZ_OPT=-9 tar -cJvf ../openSUSE-Leap-rootfs-armhf.tar.xz *
 
-8. After finish processing the image, simply run this command to modify the permission:
+5. After finish processing the image, simply run this command to modify the permission:
 
 > sudo chown -R usernamehere *
+
+6. Don't forget to delete the pulled image afterwards:
+
+> docker images -a
+docker rmi <image_ID>

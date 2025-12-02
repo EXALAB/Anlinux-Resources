@@ -16,7 +16,7 @@ if [ "$first" != 1 ];then
 		*)
 			echo "unknown architecture"; exit 1 ;;
 		esac
-		wget "https://mirror.ufam.edu.br/archlinux/iso/latest/archlinux-bootstrap-x86_64.tar.zst" -O $tarball
+		wget "https://mirror.arizona.edu/archlinux/iso/latest/archlinux-bootstrap-x86_64.tar.zst" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
