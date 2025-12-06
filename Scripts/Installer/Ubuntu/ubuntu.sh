@@ -74,6 +74,15 @@ else
 fi
 EOM
 
+echo "making abbreviation"
+cat >> .bashrc <<-EOM
+ubuntu() {
+    ./start-ubuntu.sh
+}
+EOM
+chmod +x .bashrc
+source .bashrc
+
 echo "Setting up pulseaudio so you can have music in distro."
 
 pkg install pulseaudio -y
@@ -97,4 +106,4 @@ echo "making $bin executable"
 chmod +x $bin
 echo "removing image for some space"
 rm $tarball
-echo "You can now launch Ubuntu with the ./${bin} script"
+echo "You can now launch Ubuntu with ubuntu"
