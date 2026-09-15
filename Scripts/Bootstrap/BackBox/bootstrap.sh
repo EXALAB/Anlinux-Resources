@@ -16,11 +16,8 @@ DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true \
 #Fix permission on dev machine only for easy packing
 chmod 777 -R $2
 
-#This step is also needed for BackBox as it is based on Ubuntu Focal
+#This step is also needed for BackBox as it is based on Ubuntu Noble
 touch $2/root/.hushlogin
-
-#This step is only needed for BackBox to import BackBox repo key
-chroot $2 apt-key adv --keyserver keyserver.ubuntu.com --recv-key 680E1A5A78A7ABE1
 
 #Setup DNS
 echo "127.0.0.1 localhost" > $2/etc/hosts
@@ -57,7 +54,9 @@ fi
 chroot $2 apt update
 chroot $2 apt upgrade -y
 chroot $2 apt dist-upgrade -y
-chroot $2 apt install gvfs-daemons udisks2 -y
+chroot $2 apt install gvfs-daemons udisks2 software-properties-common -y
+#This step is only needed for BackBox to import BackBox repo key
+chroot $2 add-apt-repository ppa:backbox/nine -y
 chroot $2 rm /var/lib/dpkg/info/udisks2.postinst
 chroot $2 dpkg --configure udisks2
 chroot $2 apt install -f
