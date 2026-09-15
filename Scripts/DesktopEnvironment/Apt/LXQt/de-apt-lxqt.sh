@@ -2,17 +2,17 @@
 
 #Get the necessary components
 apt-get update
-apt-get install lxqt-core lxqt-config qterminal ttigervnc-standalone-server dbus-x11 -y
+apt-get install lxqt-core lxqt-config qterminal tigervnc-standalone-server dbus-x11 -y
 apt-get install xfe -y
 apt-get clean
 
 #Setup the necessary files
 mkdir ~/.vnc
 mkdir -p ~/.config/tigervnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/xstartup --no-check-certificate -P ~/.vnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/xstartup --no-check-certificate -P ~/.config/tigervnc/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/vncserver-start --no-check-certificate -P /usr/local/bin/
-wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Xfce4/vncserver-stop --no-check-certificate -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/xstartup --no-check-certificate -P ~/.vnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/xstartup --no-check-certificate -P ~/.config/tigervnc/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/vncserver-start --no-check-certificate -P /usr/local/bin/
+wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/LXQt/vncserver-stop --no-check-certificate -P /usr/local/bin/
 
 chmod +x ~/.vnc/xstartup
 chmod +x ~/.config/tigervnc/xstartup
