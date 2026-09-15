@@ -34,7 +34,7 @@ echo "deb-src https://deb.parrot.sh/parrot lory-backports main contrib non-free 
 
 #Import the gpg key, this is only required in Parrot
 
-chroot $2 wget -qO - https://deb.parrot.sh/parrot/misc/parrotsec.gpg | gpg --import
+chroot "$2" sh -c 'wget -qO - https://deb.parrot.sh/parrot/misc/parrotsec.gpg | gpg --import'
 
 #setup custom packages
 chroot $2 apt update
