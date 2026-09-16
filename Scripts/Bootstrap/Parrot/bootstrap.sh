@@ -4,9 +4,9 @@
 rm -rf $2
 mkdir $2
 if [ "$1" = "i386" ] || [ "$1" = "amd64" ] ; then
-  debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static,gnupg,parrot-archive-keyring lory $1 http://deb.parrot.sh/parrot/
+  debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static,gnupg,parrot-archive-keyring echo $1 http://deb.parrot.sh/parrot/
 else
-  qemu-debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static,gnupg,parrot-archive-keyring lory $1 http://deb.parrot.sh/parrot/
+  qemu-debootstrap --arch=$1 --variant=minbase --include=systemd,libsystemd0,wget,ca-certificates,busybox-static,gnupg,parrot-archive-keyring echo $1 http://deb.parrot.sh/parrot/
 fi
 
 #Reduce size
@@ -25,12 +25,12 @@ echo "nameserver 8.8.4.4" >> $2/etc/resolv.conf
 rm $2/etc/apt/sources.list
 rm $2/etc/hostname
 echo "AnLinux-Parrot" > $2/etc/hostname
-echo "deb https://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
-echo "deb https://deb.parrot.sh/parrot lory-security main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
-echo "deb https://deb.parrot.sh/parrot lory-backports main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
-echo "deb-src https://deb.parrot.sh/parrot lory main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
-echo "deb-src https://deb.parrot.sh/parrot lory-security main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
-echo "deb-src https://deb.parrot.sh/parrot lory-backports main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
+echo "deb https://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
+echo "deb https://deb.parrot.sh/parrot echo-security main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
+echo "deb https://deb.parrot.sh/parrot echo-backports main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
+echo "deb-src https://deb.parrot.sh/parrot echo main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
+echo "deb-src https://deb.parrot.sh/parrot echo-security main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
+echo "deb-src https://deb.parrot.sh/parrot echo-backports main contrib non-free non-free-firmware" >> $2/etc/apt/sources.list
 
 #Import the gpg key, this is only required in Parrot
 
